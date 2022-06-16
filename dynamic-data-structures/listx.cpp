@@ -88,7 +88,7 @@ void Listx::delete_at(unsigned int _idx) {
 
 	while (endList == false)
 	{
-		if (at_it == _idx+1)
+		if (at_it == _idx)
 		{
 			endList = true;
 		}
@@ -103,6 +103,12 @@ void Listx::delete_at(unsigned int _idx) {
 			prevNode = pivotNode;
 			pivotNode = pivotNode->getLinkNode();
 		}
+	}
+
+	if (!outOfList) {
+
+		prevNode->setLinkNode(pivotNode->getLinkNode());
+		delete(pivotNode);
 	}
 
 }
